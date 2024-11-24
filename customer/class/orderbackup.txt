@@ -1,0 +1,32 @@
+<?php
+include('conect.php');
+echo "insert iiii";
+if (isset($_GET['order']) && isset($_GET['user'])){
+    $item_id = $_GET['order'];
+    $user_id = $_GET['user'];
+    echo "insertwwww ";
+    $result = mysqli_query($conn, "SELECT *from items where item_id = '$item_id'");
+    if($result){}
+    while($data = mysqli_fetch_assoc($result)){
+            $quantity = $data['quality'];
+            $name = $data['name'];
+    
+    $quantity--;
+    $qurye = mysqli_query($conn, "UPDATE items SET  `quality` = '$quantity' WHERE `item_id` = '$item_id'");
+        $date = date("Y-m-d");
+    if($qurye){
+        $insert = mysqli_query($conn, "INSERT INTO ordered_item(item_name,order_date,item_id,quantity,user_id) VALUES ('$name','$date','$item_id',1,'$user_id'");
+        echo "insert ";
+    }
+      if($quantity <= 0){
+        echo "update";
+        $update = mysqli_query($conn, "UPDATE  ordered_item SET `item_id` = 'NULL' WHERE `ordered_item`.`item_id` = '$item_id '");
+        if($update){
+            echo "insert gyd";
+        $delet = mysqli_query($conn, "DELETE FROM items WHERE item_id='$item_id");
+        header('Location: home.php');
+    }
+}
+}  
+}
+?>

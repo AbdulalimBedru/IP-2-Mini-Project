@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: azure;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container styling */
+.continer{
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraph styling */
+.continer p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Bold labels for the information */
+.continer p::before {
+    font-weight: bold;
+}
+
+/* Individual info fields */
+.continer p:nth-of-type(1)::before {
+    content: "Full Name: ";
+}
+
+.continer p:nth-of-type(2)::before {
+    content: "Email: ";
+}
+
+.continer p:nth-of-type(3)::before {
+    content: "Address: ";
+}
+
+.continer p:nth-of-type(4)::before {
+    content: "Username: ";
+}
+
+/* Link styling */
+.continer a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.continer a:hover {
+    background-color: #0056b3;
+}
+
+.continer a + a {
+    margin-left: 10px;
+}
